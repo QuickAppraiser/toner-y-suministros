@@ -253,7 +253,7 @@ const ContactForm = {
                 `🔧 Servicio: ${servicioNames[servicio] || servicio}\n` +
                 `💬 Mensaje: ${mensaje}`;
 
-            const url = `https://wa.me/573113111669?text=${encodeURIComponent(text)}`;
+            const url = `https://wa.me/573188383917?text=${encodeURIComponent(text)}`;
             window.open(url, '_blank');
         });
     }
