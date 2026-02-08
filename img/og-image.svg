@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#030712"/>
+      <stop offset="50%" style="stop-color:#0f172a"/>
+      <stop offset="100%" style="stop-color:#030712"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#0ea5e9"/>
+      <stop offset="100%" style="stop-color:#6366f1"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect x="0" y="0" width="1200" height="4" fill="url(#accent)"/>
+  <rect x="0" y="626" width="1200" height="4" fill="url(#accent)"/>
+  <!-- Printer icon -->
+  <text x="600" y="200" text-anchor="middle" font-size="100" fill="#0ea5e9" opacity="0.3">&#x1F5A8;</text>
+  <!-- Title -->
+  <text x="600" y="310" text-anchor="middle" font-family="Arial,sans-serif" font-size="56" font-weight="bold" fill="#f8fafc">Toner y Suministros</text>
+  <text x="600" y="370" text-anchor="middle" font-family="Arial,sans-serif" font-size="42" font-weight="bold" fill="#0ea5e9">Armenia</text>
+  <!-- Subtitle -->
+  <text x="600" y="430" text-anchor="middle" font-family="Arial,sans-serif" font-size="22" fill="#94a3b8">Toners | Tintas | Reparacion | Alquiler de Impresoras</text>
+  <!-- Location -->
+  <text x="600" y="480" text-anchor="middle" font-family="Arial,sans-serif" font-size="18" fill="#64748b">Armenia, Quindio, Colombia | WhatsApp: 318 838 3917</text>
+  <!-- Price tags -->
+  <rect x="300" y="510" width="200" height="36" rx="18" fill="#22c55e" opacity="0.9"/>
+  <text x="400" y="534" text-anchor="middle" font-family="Arial,sans-serif" font-size="15" font-weight="bold" fill="white">Recargas desde $35k</text>
+  <rect x="520" y="510" width="200" height="36" rx="18" fill="#0ea5e9" opacity="0.9"/>
+  <text x="620" y="534" text-anchor="middle" font-family="Arial,sans-serif" font-size="15" font-weight="bold" fill="white">Envio GRATIS</text>
+  <rect x="740" y="510" width="200" height="36" rx="18" fill="#6366f1" opacity="0.9"/>
+  <text x="840" y="534" text-anchor="middle" font-family="Arial,sans-serif" font-size="15" font-weight="bold" fill="white">Ahorra hasta 70%</text>
+</svg>
