@@ -1090,6 +1090,76 @@ body {
 }
 
 /* ============================================
+   BLOG
+   ============================================ */
+.blog {
+    background: var(--bg-dark-2);
+}
+
+.blog-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+.blog-card {
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+}
+
+.blog-card:hover {
+    border-color: var(--primary);
+}
+
+.blog-card-header {
+    margin-bottom: 16px;
+}
+
+.blog-tag {
+    display: inline-block;
+    padding: 4px 12px;
+    background: rgba(14, 165, 233, 0.15);
+    color: var(--primary);
+    border-radius: 50px;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.blog-card h3 {
+    font-family: var(--font-display);
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 1.4;
+    margin-bottom: 16px;
+    color: var(--text-primary);
+}
+
+.blog-card p {
+    font-size: 14px;
+    color: var(--text-secondary);
+    line-height: 1.8;
+}
+
+.blog-card p strong {
+    color: var(--text-primary);
+}
+
+@media (max-width: 1024px) {
+    .blog-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .blog-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ============================================
    FAQ
    ============================================ */
 .faq-grid {
