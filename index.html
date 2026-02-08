@@ -231,11 +231,11 @@
 
             <div class="nav-menu" id="navMenu">
                 <a href="#inicio" class="nav-link active">Inicio</a>
+                <a href="#buscador" class="nav-link">Buscador</a>
                 <a href="#servicios" class="nav-link">Servicios</a>
                 <a href="#productos" class="nav-link">Productos</a>
-                <a href="#nosotros" class="nav-link">Nosotros</a>
-                <a href="#faq" class="nav-link">FAQ</a>
-                <a href="#blog" class="nav-link">Blog</a>
+                <a href="#comparativa" class="nav-link">Precios</a>
+                <a href="#calculadora" class="nav-link">Calculadora</a>
                 <a href="#contacto" class="nav-link">Contacto</a>
                 <a href="https://wa.me/573188383917?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20sus%20productos%20y%20servicios" class="nav-cta" target="_blank" rel="noopener">
                     <i class="fab fa-whatsapp"></i> Cotizar
@@ -342,6 +342,48 @@
                 <div class="brand-item"><i class="fas fa-print"></i> Konica Minolta</div>
             </div>
         </div>
+    </section>
+
+    <!-- Toner Search by Printer Model -->
+    <section id="buscador" class="section-buscador">
+      <div class="container">
+        <div class="section-header" data-aos="fade-up">
+          <span class="section-badge"><i class="fas fa-search"></i> Buscador Inteligente</span>
+          <h2 class="section-title">Encuentra tu Toner por Modelo de Impresora</h2>
+          <p class="section-subtitle">Escribe el modelo de tu impresora y te mostramos el toner compatible con los mejores precios</p>
+        </div>
+
+        <div class="search-wrapper" data-aos="fade-up" data-aos-delay="200">
+          <div class="search-box">
+            <i class="fas fa-print search-icon"></i>
+            <input
+              type="text"
+              id="printerSearchInput"
+              class="search-input"
+              placeholder="Ej: HP LaserJet P1102, Samsung M2020, Brother HL-1110..."
+              autocomplete="off"
+            />
+            <button id="clearSearchBtn" class="clear-search-btn" style="display:none;">
+              <i class="fas fa-times"></i>
+            </button>
+          </div>
+          <div id="searchSuggestions" class="search-suggestions"></div>
+        </div>
+
+        <div id="searchResults" class="search-results"></div>
+
+        <div id="popularModels" class="popular-models">
+          <p class="popular-title"><i class="fas fa-fire"></i> Modelos populares:</p>
+          <div class="popular-tags">
+            <button class="popular-tag" data-model="HP LaserJet P1102">HP P1102</button>
+            <button class="popular-tag" data-model="Samsung SL-M2020">Samsung M2020</button>
+            <button class="popular-tag" data-model="Brother HL-1110">Brother HL-1110</button>
+            <button class="popular-tag" data-model="Epson L3250">Epson L3250</button>
+            <button class="popular-tag" data-model="HP LaserJet 1020">HP 1020</button>
+            <button class="popular-tag" data-model="Canon imageClass MF3010">Canon MF3010</button>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- Services Section - Bento Grid -->
@@ -715,6 +757,249 @@
         </div>
     </section>
 
+    <!-- Price Comparison Table -->
+    <section id="comparativa" class="section-comparativa">
+      <div class="container">
+        <div class="section-header" data-aos="fade-up">
+          <span class="section-badge"><i class="fas fa-chart-bar"></i> Comparativa de Precios</span>
+          <h2 class="section-title">Compara y Ahorra en tu Toner</h2>
+          <p class="section-subtitle">Mira cuanto puedes ahorrar eligiendo toner compatible o recarga vs. original</p>
+        </div>
+
+        <div class="comparison-grid" data-aos="fade-up" data-aos-delay="200">
+
+          <!-- HP 85A -->
+          <div class="comparison-card">
+            <div class="comparison-card-header">
+              <h3>HP 85A <span class="toner-ref">(CE285A)</span></h3>
+              <p class="compatible-printers">P1102 / P1102w</p>
+            </div>
+            <div class="comparison-options">
+              <div class="option-row option-original">
+                <div class="option-info">
+                  <span class="option-badge badge-original">Original</span>
+                  <span class="option-price">$120.000</span>
+                </div>
+                <div class="option-savings"></div>
+              </div>
+              <div class="option-row option-compatible">
+                <div class="option-info">
+                  <span class="option-badge badge-compatible">Compatible</span>
+                  <span class="option-price">$45.000</span>
+                </div>
+                <div class="option-savings">
+                  <span class="savings-tag"><i class="fas fa-arrow-down"></i> Ahorras 63%</span>
+                </div>
+              </div>
+              <div class="option-row option-recarga best-value">
+                <div class="option-info">
+                  <span class="option-badge badge-recarga">Recarga</span>
+                  <span class="option-price">$35.000</span>
+                </div>
+                <div class="option-savings">
+                  <span class="savings-tag best"><i class="fas fa-star"></i> Ahorras 71% - Mejor valor</span>
+                </div>
+              </div>
+            </div>
+            <a href="https://wa.me/573188383917?text=Hola%2C%20quiero%20cotizar%20toner%20HP%2085A%20(CE285A)%20para%20mi%20impresora" class="btn-pedir" target="_blank" rel="noopener">
+              <i class="fab fa-whatsapp"></i> Pedir HP 85A
+            </a>
+          </div>
+
+          <!-- HP 83A -->
+          <div class="comparison-card">
+            <div class="comparison-card-header">
+              <h3>HP 83A <span class="toner-ref">(CF283A)</span></h3>
+              <p class="compatible-printers">M125 / M127</p>
+            </div>
+            <div class="comparison-options">
+              <div class="option-row option-original">
+                <div class="option-info">
+                  <span class="option-badge badge-original">Original</span>
+                  <span class="option-price">$130.000</span>
+                </div>
+                <div class="option-savings"></div>
+              </div>
+              <div class="option-row option-compatible">
+                <div class="option-info">
+                  <span class="option-badge badge-compatible">Compatible</span>
+                  <span class="option-price">$45.000</span>
+                </div>
+                <div class="option-savings">
+                  <span class="savings-tag"><i class="fas fa-arrow-down"></i> Ahorras 65%</span>
+                </div>
+              </div>
+              <div class="option-row option-recarga best-value">
+                <div class="option-info">
+                  <span class="option-badge badge-recarga">Recarga</span>
+                  <span class="option-price">$35.000</span>
+                </div>
+                <div class="option-savings">
+                  <span class="savings-tag best"><i class="fas fa-star"></i> Ahorras 73% - Mejor valor</span>
+                </div>
+              </div>
+            </div>
+            <a href="https://wa.me/573188383917?text=Hola%2C%20quiero%20cotizar%20toner%20HP%2083A%20(CF283A)%20para%20mi%20impresora" class="btn-pedir" target="_blank" rel="noopener">
+              <i class="fab fa-whatsapp"></i> Pedir HP 83A
+            </a>
+          </div>
+
+          <!-- Samsung D101S -->
+          <div class="comparison-card">
+            <div class="comparison-card-header">
+              <h3>Samsung D101S <span class="toner-ref">(MLT-D101S)</span></h3>
+              <p class="compatible-printers">ML-2160 / SCX-3400</p>
+            </div>
+            <div class="comparison-options">
+              <div class="option-row option-original">
+                <div class="option-info">
+                  <span class="option-badge badge-original">Original</span>
+                  <span class="option-price">$145.000</span>
+                </div>
+                <div class="option-savings"></div>
+              </div>
+              <div class="option-row option-compatible">
+                <div class="option-info">
+                  <span class="option-badge badge-compatible">Compatible</span>
+                  <span class="option-price">$48.000</span>
+                </div>
+                <div class="option-savings">
+                  <span class="savings-tag"><i class="fas fa-arrow-down"></i> Ahorras 67%</span>
+                </div>
+              </div>
+              <div class="option-row option-recarga best-value">
+                <div class="option-info">
+                  <span class="option-badge badge-recarga">Recarga</span>
+                  <span class="option-price">$40.000</span>
+                </div>
+                <div class="option-savings">
+                  <span class="savings-tag best"><i class="fas fa-star"></i> Ahorras 72% - Mejor valor</span>
+                </div>
+              </div>
+            </div>
+            <a href="https://wa.me/573188383917?text=Hola%2C%20quiero%20cotizar%20toner%20Samsung%20MLT-D101S%20para%20mi%20impresora" class="btn-pedir" target="_blank" rel="noopener">
+              <i class="fab fa-whatsapp"></i> Pedir Samsung D101S
+            </a>
+          </div>
+
+          <!-- Samsung D111S -->
+          <div class="comparison-card">
+            <div class="comparison-card-header">
+              <h3>Samsung D111S <span class="toner-ref">(MLT-D111S)</span></h3>
+              <p class="compatible-printers">SL-M2020 / M2070</p>
+            </div>
+            <div class="comparison-options">
+              <div class="option-row option-original">
+                <div class="option-info">
+                  <span class="option-badge badge-original">Original</span>
+                  <span class="option-price">$155.000</span>
+                </div>
+                <div class="option-savings"></div>
+              </div>
+              <div class="option-row option-compatible">
+                <div class="option-info">
+                  <span class="option-badge badge-compatible">Compatible</span>
+                  <span class="option-price">$52.000</span>
+                </div>
+                <div class="option-savings">
+                  <span class="savings-tag"><i class="fas fa-arrow-down"></i> Ahorras 66%</span>
+                </div>
+              </div>
+              <div class="option-row option-recarga best-value">
+                <div class="option-info">
+                  <span class="option-badge badge-recarga">Recarga</span>
+                  <span class="option-price">$45.000</span>
+                </div>
+                <div class="option-savings">
+                  <span class="savings-tag best"><i class="fas fa-star"></i> Ahorras 71% - Mejor valor</span>
+                </div>
+              </div>
+            </div>
+            <a href="https://wa.me/573188383917?text=Hola%2C%20quiero%20cotizar%20toner%20Samsung%20MLT-D111S%20para%20mi%20impresora" class="btn-pedir" target="_blank" rel="noopener">
+              <i class="fab fa-whatsapp"></i> Pedir Samsung D111S
+            </a>
+          </div>
+
+          <!-- Brother TN-1060 -->
+          <div class="comparison-card">
+            <div class="comparison-card-header">
+              <h3>Brother TN-1060</h3>
+              <p class="compatible-printers">HL-1110 / HL-1112</p>
+            </div>
+            <div class="comparison-options">
+              <div class="option-row option-original">
+                <div class="option-info">
+                  <span class="option-badge badge-original">Original</span>
+                  <span class="option-price">$110.000</span>
+                </div>
+                <div class="option-savings"></div>
+              </div>
+              <div class="option-row option-compatible">
+                <div class="option-info">
+                  <span class="option-badge badge-compatible">Compatible</span>
+                  <span class="option-price">$42.000</span>
+                </div>
+                <div class="option-savings">
+                  <span class="savings-tag"><i class="fas fa-arrow-down"></i> Ahorras 62%</span>
+                </div>
+              </div>
+              <div class="option-row option-recarga best-value">
+                <div class="option-info">
+                  <span class="option-badge badge-recarga">Recarga</span>
+                  <span class="option-price">$35.000</span>
+                </div>
+                <div class="option-savings">
+                  <span class="savings-tag best"><i class="fas fa-star"></i> Ahorras 68% - Mejor valor</span>
+                </div>
+              </div>
+            </div>
+            <a href="https://wa.me/573188383917?text=Hola%2C%20quiero%20cotizar%20toner%20Brother%20TN-1060%20para%20mi%20impresora" class="btn-pedir" target="_blank" rel="noopener">
+              <i class="fab fa-whatsapp"></i> Pedir Brother TN-1060
+            </a>
+          </div>
+
+          <!-- Brother TN-2370 -->
+          <div class="comparison-card">
+            <div class="comparison-card-header">
+              <h3>Brother TN-2370 <span class="toner-ref">(TN-660)</span></h3>
+              <p class="compatible-printers">HL-L2320 / MFC-L2700</p>
+            </div>
+            <div class="comparison-options">
+              <div class="option-row option-original">
+                <div class="option-info">
+                  <span class="option-badge badge-original">Original</span>
+                  <span class="option-price">$140.000</span>
+                </div>
+                <div class="option-savings"></div>
+              </div>
+              <div class="option-row option-compatible">
+                <div class="option-info">
+                  <span class="option-badge badge-compatible">Compatible</span>
+                  <span class="option-price">$55.000</span>
+                </div>
+                <div class="option-savings">
+                  <span class="savings-tag"><i class="fas fa-arrow-down"></i> Ahorras 61%</span>
+                </div>
+              </div>
+              <div class="option-row option-recarga best-value">
+                <div class="option-info">
+                  <span class="option-badge badge-recarga">Recarga</span>
+                  <span class="option-price">$42.000</span>
+                </div>
+                <div class="option-savings">
+                  <span class="savings-tag best"><i class="fas fa-star"></i> Ahorras 70% - Mejor valor</span>
+                </div>
+              </div>
+            </div>
+            <a href="https://wa.me/573188383917?text=Hola%2C%20quiero%20cotizar%20toner%20Brother%20TN-2370%20para%20mi%20impresora" class="btn-pedir" target="_blank" rel="noopener">
+              <i class="fab fa-whatsapp"></i> Pedir Brother TN-2370
+            </a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
     <!-- Why Choose Us -->
     <section id="nosotros" class="why-us section">
         <div class="container">
@@ -798,6 +1083,102 @@
                 </div>
             </div>
         </div>
+    </section>
+
+    <!-- Savings Calculator -->
+    <section id="calculadora" class="section-calculadora">
+      <div class="container">
+        <div class="section-header" data-aos="fade-up">
+          <span class="section-badge"><i class="fas fa-calculator"></i> Calculadora de Ahorro</span>
+          <h2 class="section-title">Calcula Cuanto Puedes Ahorrar</h2>
+          <p class="section-subtitle">Descubre el ahorro anual al elegir toner compatible o recarga</p>
+        </div>
+
+        <div class="calculadora-wrapper" data-aos="fade-up" data-aos-delay="200">
+          <div class="calc-form">
+            <div class="calc-field">
+              <label for="calcBrand"><i class="fas fa-building"></i> Marca de tu impresora</label>
+              <div class="select-wrapper">
+                <select id="calcBrand">
+                  <option value="">Selecciona una marca</option>
+                  <option value="hp">HP</option>
+                  <option value="samsung">Samsung</option>
+                  <option value="brother">Brother</option>
+                  <option value="epson">Epson</option>
+                  <option value="canon">Canon</option>
+                  <option value="kyocera">Kyocera</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="calc-field">
+              <label for="calcPages">
+                <i class="fas fa-file-alt"></i> Paginas que imprimes al mes
+                <span class="calc-pages-value" id="calcPagesValue">500</span>
+              </label>
+              <input type="range" id="calcPages" min="100" max="5000" value="500" step="50" />
+              <div class="range-labels">
+                <span>100</span>
+                <span>2500</span>
+                <span>5000</span>
+              </div>
+            </div>
+
+            <button id="calcButton" class="calc-btn" disabled>
+              <i class="fas fa-calculator"></i> Calcular Ahorro
+            </button>
+          </div>
+
+          <div class="calc-results" id="calcResults" style="display:none;">
+            <h3 class="calc-results-title"><i class="fas fa-chart-pie"></i> Tu Proyeccion de Costos Anual</h3>
+
+            <div class="cost-cards">
+              <div class="cost-card cost-original">
+                <div class="cost-label">
+                  <span class="cost-dot dot-original"></span> Toner Original
+                </div>
+                <div class="cost-amount" id="costOriginal">$0</div>
+                <div class="cost-detail" id="costOriginalDetail"></div>
+              </div>
+              <div class="cost-card cost-compatible">
+                <div class="cost-label">
+                  <span class="cost-dot dot-compatible"></span> Toner Compatible
+                </div>
+                <div class="cost-amount" id="costCompatible">$0</div>
+                <div class="cost-detail" id="costCompatibleDetail"></div>
+              </div>
+              <div class="cost-card cost-recarga">
+                <div class="cost-label">
+                  <span class="cost-dot dot-recarga"></span> Recarga de Toner
+                </div>
+                <div class="cost-amount" id="costRecarga">$0</div>
+                <div class="cost-detail" id="costRecargaDetail"></div>
+              </div>
+            </div>
+
+            <div class="savings-summary">
+              <div class="savings-box">
+                <div class="savings-icon"><i class="fas fa-piggy-bank"></i></div>
+                <div class="savings-info">
+                  <span class="savings-label">Ahorro anual con compatible</span>
+                  <span class="savings-amount" id="savingsCompatible">$0</span>
+                </div>
+              </div>
+              <div class="savings-box savings-highlight">
+                <div class="savings-icon"><i class="fas fa-trophy"></i></div>
+                <div class="savings-info">
+                  <span class="savings-label">Ahorro anual con recarga</span>
+                  <span class="savings-amount" id="savingsRecarga">$0</span>
+                </div>
+              </div>
+            </div>
+
+            <a href="#" id="calcWhatsAppBtn" class="calc-cta" target="_blank" rel="noopener">
+              <i class="fab fa-whatsapp"></i> Empieza a Ahorrar - Contactanos
+            </a>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- Testimonials -->
@@ -1076,6 +1457,60 @@
         </div>
     </section>
 
+    <!-- Ubicacion / Google Maps -->
+    <section id="ubicacion" class="section-ubicacion">
+      <div class="container">
+        <div class="section-header" data-aos="fade-up">
+          <span class="section-badge"><i class="fas fa-map-marker-alt"></i> Nuestra Ubicacion</span>
+          <h2 class="section-title">Visitanos en Armenia, Quindio</h2>
+          <p class="section-subtitle">Estamos ubicados en un punto estrategico del centro de Armenia</p>
+        </div>
+
+        <div class="ubicacion-content" data-aos="fade-up" data-aos-delay="200">
+          <div class="map-container">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3978.5!2d-75.681!3d4.534!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNMKwMzInMDIuNCJOIDc1wrA0MCc1MS42Ilc!5e0!3m2!1ses!2sco!4v1700000000000!5m2!1ses!2sco"
+              width="100%"
+              height="450"
+              style="border:0;"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              title="Ubicacion de la tienda en Armenia, Quindio">
+            </iframe>
+          </div>
+          <div class="ubicacion-info">
+            <div class="info-card">
+              <div class="info-item">
+                <div class="info-icon"><i class="fas fa-map-marker-alt"></i></div>
+                <div>
+                  <h4>Direccion</h4>
+                  <p>Cra 15 Calle 2 Norte 15 esquina<br>Armenia, Quindio, Colombia</p>
+                </div>
+              </div>
+              <div class="info-item">
+                <div class="info-icon"><i class="fab fa-whatsapp"></i></div>
+                <div>
+                  <h4>WhatsApp</h4>
+                  <p><a href="https://wa.me/573188383917" target="_blank" rel="noopener">+57 318 838 3917</a></p>
+                </div>
+              </div>
+              <div class="info-item">
+                <div class="info-icon"><i class="fas fa-clock"></i></div>
+                <div>
+                  <h4>Horario</h4>
+                  <p>Lunes a Viernes: 8:00 AM - 6:00 PM<br>Sabados: 8:00 AM - 1:00 PM</p>
+                </div>
+              </div>
+            </div>
+            <a href="https://www.google.com/maps/search/Cra+15+Calle+2+Norte+15+esquina+Armenia+Quindio+Colombia" class="btn-directions" target="_blank" rel="noopener">
+              <i class="fas fa-directions"></i> Como Llegar
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- SEO Content Section -->
     <section class="seo-content section">
         <div class="container">
@@ -1204,6 +1639,48 @@
     <button class="back-to-top" id="backToTop" aria-label="Volver arriba">
         <i class="fas fa-chevron-up"></i>
     </button>
+
+    <!-- Promotional Banner with Countdown -->
+    <div id="promoBanner" class="promo-banner" style="display:none;">
+      <div class="promo-inner">
+        <button id="promoCloseBtn" class="promo-close" aria-label="Cerrar promocion">
+          <i class="fas fa-times"></i>
+        </button>
+        <div class="promo-badge">
+          <i class="fas fa-bolt"></i> PROMO DE LA SEMANA
+        </div>
+        <div class="promo-content">
+          <p class="promo-text" id="promoText">Recarga de toner HP 85A por solo <strong>$30.000</strong></p>
+          <div class="promo-countdown">
+            <span class="promo-countdown-label">Oferta termina en:</span>
+            <div class="countdown-timer" id="promoCountdown">
+              <div class="countdown-unit">
+                <span class="countdown-number" id="countDays">0</span>
+                <span class="countdown-label">Dias</span>
+              </div>
+              <div class="countdown-separator">:</div>
+              <div class="countdown-unit">
+                <span class="countdown-number" id="countHours">00</span>
+                <span class="countdown-label">Horas</span>
+              </div>
+              <div class="countdown-separator">:</div>
+              <div class="countdown-unit">
+                <span class="countdown-number" id="countMinutes">00</span>
+                <span class="countdown-label">Min</span>
+              </div>
+              <div class="countdown-separator">:</div>
+              <div class="countdown-unit">
+                <span class="countdown-number" id="countSeconds">00</span>
+                <span class="countdown-label">Seg</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <a href="https://wa.me/573188383917?text=Hola%2C%20quiero%20aprovechar%20la%20PROMO%20DE%20LA%20SEMANA%20que%20vi%20en%20su%20pagina%20web" class="promo-cta" target="_blank" rel="noopener">
+          <i class="fab fa-whatsapp"></i> Aprovechar Promo
+        </a>
+      </div>
+    </div>
 
     <!-- Scripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
