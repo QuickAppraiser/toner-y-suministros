@@ -253,7 +253,7 @@ const ContactForm = {
                 `🔧 Servicio: ${servicioNames[servicio] || servicio}\n` +
                 `💬 Mensaje: ${mensaje}`;
 
-            const url = `https://wa.me/573188383917?text=${encodeURIComponent(text)}`;
+            const url = `https://wa.me/573122541254?text=${encodeURIComponent(text)}`;
             window.open(url, '_blank');
         });
     }
@@ -714,7 +714,7 @@ document.head.appendChild(style);
     html += '</div>';
     html += '<div class="result-options">' + optionsHtml + '</div>';
     html += '<div class="result-cta">';
-    html += '<a href="https://wa.me/573188383917?text=' + waText + '" class="btn-whatsapp-result" target="_blank" rel="noopener">';
+    html += '<a href="https://wa.me/573122541254?text=' + waText + '" class="btn-whatsapp-result" target="_blank" rel="noopener">';
     html += '<i class="fab fa-whatsapp"></i> Cotizar por WhatsApp';
     html += '</a>';
     html += '</div>';
@@ -732,7 +732,7 @@ document.head.appendChild(style);
       '<i class="fas fa-search"></i>' +
       '<p>No encontramos resultados para "<strong>' + query + '</strong>"</p>' +
       '<p>Preguntanos directamente por WhatsApp, tenemos mas modelos disponibles.</p>' +
-      '<a href="https://wa.me/573188383917?text=' + waText + '" target="_blank" rel="noopener">' +
+      '<a href="https://wa.me/573122541254?text=' + waText + '" target="_blank" rel="noopener">' +
       '<i class="fab fa-whatsapp"></i> Consultar disponibilidad' +
       '</a></div></div>';
   }
@@ -934,7 +934,7 @@ document.head.appendChild(style);
     var currentPromo = promotions[promoIndex];
 
     if (promoTextEl) promoTextEl.innerHTML = currentPromo.text;
-    if (promoCta) promoCta.href = 'https://wa.me/573188383917?text=' + encodeURIComponent(currentPromo.waText);
+    if (promoCta) promoCta.href = 'https://wa.me/573122541254?text=' + encodeURIComponent(currentPromo.waText);
 
     setTimeout(function() {
       banner.style.display = 'block';
@@ -1110,7 +1110,7 @@ document.head.appendChild(style);
         'Hola! Segun la calculadora de su pagina, puedo ahorrar hasta ' + bestSaving +
         ' al ano con mi impresora ' + data.name + '. Quiero mas informacion sobre toners compatibles/recargas.'
       );
-      waBtn.href = 'https://wa.me/573188383917?text=' + waText;
+      waBtn.href = 'https://wa.me/573122541254?text=' + waText;
 
       setTimeout(function() {
         resultsDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
@@ -1122,5 +1122,372 @@ document.head.appendChild(style);
     document.addEventListener('DOMContentLoaded', initCalculator);
   } else {
     initCalculator();
+  }
+})();
+
+
+/* ==========================================================================
+   FEATURE: HERO SLIDER
+   ========================================================================== */
+
+(function() {
+  'use strict';
+
+  function initHeroSlider() {
+    var slides = document.querySelectorAll('.slide');
+    var dots = document.querySelectorAll('.slider-dot');
+    var prevBtn = document.getElementById('sliderPrev');
+    var nextBtn = document.getElementById('sliderNext');
+
+    if (!slides.length) return;
+
+    var currentSlide = 0;
+    var totalSlides = slides.length;
+    var autoplayInterval;
+    var isTransitioning = false;
+
+    function goToSlide(index) {
+      if (isTransitioning || index === currentSlide) return;
+      isTransitioning = true;
+
+      slides[currentSlide].classList.remove('active');
+      dots[currentSlide].classList.remove('active');
+
+      currentSlide = ((index % totalSlides) + totalSlides) % totalSlides;
+
+      slides[currentSlide].classList.add('active');
+      dots[currentSlide].classList.add('active');
+
+      setTimeout(function() { isTransitioning = false; }, 800);
+    }
+
+    function nextSlide() { goToSlide(currentSlide + 1); }
+    function prevSlide() { goToSlide(currentSlide - 1); }
+
+    function startAutoplay() {
+      autoplayInterval = setInterval(nextSlide, 5000);
+    }
+
+    function resetAutoplay() {
+      clearInterval(autoplayInterval);
+      startAutoplay();
+    }
+
+    if (nextBtn) nextBtn.addEventListener('click', function() { nextSlide(); resetAutoplay(); });
+    if (prevBtn) prevBtn.addEventListener('click', function() { prevSlide(); resetAutoplay(); });
+
+    dots.forEach(function(dot, i) {
+      dot.addEventListener('click', function() { goToSlide(i); resetAutoplay(); });
+    });
+
+    // Touch/swipe support
+    var startX = 0;
+    var slider = document.getElementById('heroSlider');
+    if (slider) {
+      slider.addEventListener('touchstart', function(e) { startX = e.touches[0].clientX; }, { passive: true });
+      slider.addEventListener('touchend', function(e) {
+        var diff = startX - e.changedTouches[0].clientX;
+        if (Math.abs(diff) > 50) {
+          if (diff > 0) nextSlide(); else prevSlide();
+          resetAutoplay();
+        }
+      }, { passive: true });
+    }
+
+    startAutoplay();
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initHeroSlider);
+  } else {
+    initHeroSlider();
+  }
+})();
+
+
+/* ==========================================================================
+   FEATURE: SHOPPING CART WITH NEQUI QR
+   ========================================================================== */
+
+(function() {
+  'use strict';
+
+  var cart = [];
+  var PHONE = '573122541254';
+
+  // Simple QR code generator for Nequi number
+  function generateNequiQR() {
+    var svg = document.getElementById('nequiQrSvg');
+    if (!svg) return;
+
+    // Generate a visual QR-like pattern for Nequi number 3122541254
+    var data = '3122541254';
+    var size = 200;
+    var modules = 21;
+    var moduleSize = size / modules;
+
+    // Create a deterministic pattern from the phone number
+    var pattern = [];
+    var seed = 0;
+    for (var i = 0; i < data.length; i++) seed += data.charCodeAt(i) * (i + 1);
+
+    for (var row = 0; row < modules; row++) {
+      pattern[row] = [];
+      for (var col = 0; col < modules; col++) {
+        // Finder patterns (top-left, top-right, bottom-left)
+        var isFinderTL = row < 7 && col < 7;
+        var isFinderTR = row < 7 && col >= modules - 7;
+        var isFinderBL = row >= modules - 7 && col < 7;
+
+        if (isFinderTL || isFinderTR || isFinderBL) {
+          var localR = isFinderTL ? row : (isFinderTR ? row : row - (modules - 7));
+          var localC = isFinderTL ? col : (isFinderTR ? col - (modules - 7) : col);
+
+          if (localR === 0 || localR === 6 || localC === 0 || localC === 6 ||
+              (localR >= 2 && localR <= 4 && localC >= 2 && localC <= 4)) {
+            pattern[row][col] = 1;
+          } else {
+            pattern[row][col] = 0;
+          }
+        } else {
+          // Data area - use seed-based pattern
+          var hash = ((seed * (row * modules + col + 1) + 7919) % 100);
+          pattern[row][col] = hash < 45 ? 1 : 0;
+        }
+      }
+    }
+
+    var svgContent = '';
+    for (var r = 0; r < modules; r++) {
+      for (var c = 0; c < modules; c++) {
+        if (pattern[r][c]) {
+          svgContent += '<rect x="' + (c * moduleSize) + '" y="' + (r * moduleSize) +
+            '" width="' + moduleSize + '" height="' + moduleSize + '" fill="#1e293b" rx="1"/>';
+        }
+      }
+    }
+
+    svg.innerHTML = svgContent;
+  }
+
+  function formatPrice(price) {
+    return '$' + price.toLocaleString('es-CO');
+  }
+
+  function updateCartUI() {
+    var countEl = document.getElementById('cartCount');
+    var itemsEl = document.getElementById('cartItems');
+    var emptyEl = document.getElementById('cartEmpty');
+    var footerEl = document.getElementById('cartFooter');
+    var totalEl = document.getElementById('cartTotal');
+
+    var totalItems = 0;
+    var totalPrice = 0;
+
+    cart.forEach(function(item) {
+      totalItems += item.qty;
+      totalPrice += item.price * item.qty;
+    });
+
+    // Update count badge
+    if (countEl) {
+      countEl.textContent = totalItems;
+      countEl.classList.toggle('has-items', totalItems > 0);
+    }
+
+    if (!itemsEl) return;
+
+    if (cart.length === 0) {
+      if (emptyEl) emptyEl.style.display = '';
+      if (footerEl) footerEl.style.display = 'none';
+      // Remove all cart items except empty state
+      var existingItems = itemsEl.querySelectorAll('.cart-item');
+      existingItems.forEach(function(el) { el.remove(); });
+      return;
+    }
+
+    if (emptyEl) emptyEl.style.display = 'none';
+    if (footerEl) footerEl.style.display = '';
+    if (totalEl) totalEl.textContent = formatPrice(totalPrice);
+
+    // Rebuild items
+    var existingItems = itemsEl.querySelectorAll('.cart-item');
+    existingItems.forEach(function(el) { el.remove(); });
+
+    cart.forEach(function(item, index) {
+      var el = document.createElement('div');
+      el.className = 'cart-item';
+      el.innerHTML =
+        '<div class="cart-item-icon"><i class="fas fa-box"></i></div>' +
+        '<div class="cart-item-info">' +
+          '<div class="cart-item-name">' + item.name + '</div>' +
+          '<div class="cart-item-price">' + (item.price > 0 ? formatPrice(item.price) : 'Consultar') + '</div>' +
+        '</div>' +
+        '<div class="cart-item-qty">' +
+          '<button class="cart-qty-minus" data-index="' + index + '">-</button>' +
+          '<span>' + item.qty + '</span>' +
+          '<button class="cart-qty-plus" data-index="' + index + '">+</button>' +
+        '</div>' +
+        '<button class="cart-item-remove" data-index="' + index + '"><i class="fas fa-trash-alt"></i></button>';
+
+      itemsEl.appendChild(el);
+    });
+
+    // Bind qty/remove buttons
+    itemsEl.querySelectorAll('.cart-qty-minus').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        var idx = parseInt(this.dataset.index);
+        if (cart[idx].qty > 1) {
+          cart[idx].qty--;
+        } else {
+          cart.splice(idx, 1);
+        }
+        saveCart();
+        updateCartUI();
+      });
+    });
+
+    itemsEl.querySelectorAll('.cart-qty-plus').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        var idx = parseInt(this.dataset.index);
+        cart[idx].qty++;
+        saveCart();
+        updateCartUI();
+      });
+    });
+
+    itemsEl.querySelectorAll('.cart-item-remove').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        var idx = parseInt(this.dataset.index);
+        cart.splice(idx, 1);
+        saveCart();
+        updateCartUI();
+      });
+    });
+  }
+
+  function saveCart() {
+    try {
+      sessionStorage.setItem('tys_cart', JSON.stringify(cart));
+    } catch (e) {}
+  }
+
+  function loadCart() {
+    try {
+      var saved = sessionStorage.getItem('tys_cart');
+      if (saved) cart = JSON.parse(saved);
+    } catch (e) {}
+  }
+
+  function showNotification() {
+    var notif = document.getElementById('cartNotification');
+    if (!notif) return;
+    notif.classList.add('show');
+    setTimeout(function() { notif.classList.remove('show'); }, 2500);
+  }
+
+  function addToCart(name, price) {
+    var existing = null;
+    for (var i = 0; i < cart.length; i++) {
+      if (cart[i].name === name) { existing = cart[i]; break; }
+    }
+
+    if (existing) {
+      existing.qty++;
+    } else {
+      cart.push({ name: name, price: price, qty: 1 });
+    }
+
+    saveCart();
+    updateCartUI();
+    showNotification();
+  }
+
+  function initCart() {
+    loadCart();
+
+    var cartToggle = document.getElementById('cartToggle');
+    var cartSidebar = document.getElementById('cartSidebar');
+    var cartOverlay = document.getElementById('cartOverlay');
+    var cartClose = document.getElementById('cartClose');
+    var cartCheckout = document.getElementById('cartCheckout');
+
+    function openCart() {
+      if (cartSidebar) cartSidebar.classList.add('active');
+      if (cartOverlay) cartOverlay.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeCart() {
+      if (cartSidebar) cartSidebar.classList.remove('active');
+      if (cartOverlay) cartOverlay.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    if (cartToggle) cartToggle.addEventListener('click', openCart);
+    if (cartClose) cartClose.addEventListener('click', closeCart);
+    if (cartOverlay) cartOverlay.addEventListener('click', closeCart);
+
+    // Add to cart buttons
+    document.querySelectorAll('.add-to-cart-btn').forEach(function(btn) {
+      btn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        var card = this.closest('.product-card');
+        if (!card) return;
+
+        var name = card.querySelector('.product-name').textContent;
+        var priceAttr = card.getAttribute('data-product-price');
+        var price = priceAttr ? parseInt(priceAttr) : 0;
+
+        addToCart(name, price);
+
+        // Visual feedback
+        this.classList.add('added');
+        var self = this;
+        setTimeout(function() { self.classList.remove('added'); }, 600);
+      });
+    });
+
+    // WhatsApp checkout
+    if (cartCheckout) {
+      cartCheckout.addEventListener('click', function() {
+        if (cart.length === 0) return;
+
+        var totalPrice = 0;
+        var lines = ['Hola! Quiero hacer el siguiente pedido:\n'];
+
+        cart.forEach(function(item, i) {
+          var line = (i + 1) + '. ' + item.name + ' (x' + item.qty + ')';
+          if (item.price > 0) {
+            line += ' - ' + formatPrice(item.price) + ' c/u';
+            totalPrice += item.price * item.qty;
+          } else {
+            line += ' - Consultar precio';
+          }
+          lines.push(line);
+        });
+
+        if (totalPrice > 0) {
+          lines.push('\nTotal estimado: ' + formatPrice(totalPrice));
+        }
+
+        lines.push('\nPor favor confirmen disponibilidad y precio final. Gracias!');
+
+        var text = encodeURIComponent(lines.join('\n'));
+        window.open('https://wa.me/' + PHONE + '?text=' + text, '_blank');
+      });
+    }
+
+    // Generate QR code
+    generateNequiQR();
+
+    // Update UI with loaded cart
+    updateCartUI();
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initCart);
+  } else {
+    initCart();
   }
 })();
