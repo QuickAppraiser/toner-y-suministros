@@ -328,7 +328,7 @@
                 <div class="slide-content">
                     <div class="slide-text">
                         <div class="hero-badge"><i class="fas fa-bolt"></i><span>Ahorra hasta 70%</span></div>
-                        <h1 class="hero-title"><span class="hero-title-line">Recarga de T&oacute;ner</span><span class="hero-title-line gradient-text">Desde $35.000</span></h1>
+                        <h2 class="hero-title"><span class="hero-title-line">Recarga de T&oacute;ner</span><span class="hero-title-line gradient-text">Desde $35.000</span></h2>
                         <p class="hero-subtitle">Recarga profesional con polvillo premium importado. HP, Samsung, Brother y m&aacute;s.</p>
                         <div class="hero-actions">
                             <a href="https://wa.me/573122541254?text=Hola%2C%20necesito%20recargar%20mi%20toner" class="btn btn-primary btn-glow" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> Pedir Recarga</a>
@@ -360,7 +360,7 @@
                 <div class="slide-content">
                     <div class="slide-text">
                         <div class="hero-badge"><i class="fas fa-tools"></i><span>Servicio T&eacute;cnico</span></div>
-                        <h1 class="hero-title"><span class="hero-title-line">Reparaci&oacute;n &amp;</span><span class="hero-title-line gradient-text">Mantenimiento</span></h1>
+                        <h2 class="hero-title"><span class="hero-title-line">Reparaci&oacute;n &amp;</span><span class="hero-title-line gradient-text">Mantenimiento</span></h2>
                         <p class="hero-subtitle">Servicio t&eacute;cnico a domicilio en Armenia y el Quind&iacute;o. Todas las marcas de impresoras.</p>
                         <div class="hero-actions">
                             <a href="https://wa.me/573122541254?text=Hola%2C%20necesito%20reparar%20mi%20impresora" class="btn btn-primary btn-glow" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> Agendar Servicio</a>
@@ -393,7 +393,7 @@
                 <div class="slide-content">
                     <div class="slide-text">
                         <div class="hero-badge"><i class="fas fa-truck"></i><span>Domicilio Gratis</span></div>
-                        <h1 class="hero-title"><span class="hero-title-line">Entrega a</span><span class="hero-title-line gradient-text">Domicilio Gratis</span></h1>
+                        <h2 class="hero-title"><span class="hero-title-line">Entrega a</span><span class="hero-title-line gradient-text">Domicilio Gratis</span></h2>
                         <p class="hero-subtitle">Recibe tus suministros directamente en tu oficina. Armenia y todo el Quind&iacute;o sin recargo.</p>
                         <div class="hero-actions">
                             <a href="https://wa.me/573122541254?text=Hola%2C%20necesito%20un%20pedido%20a%20domicilio" class="btn btn-primary btn-glow" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> Pedir a Domicilio</a>
@@ -406,9 +406,9 @@
                             <rect x="100" y="150" width="200" height="100" rx="10" fill="url(#g4)" opacity="0.15" class="svg-float"/>
                             <rect x="120" y="165" width="160" height="70" rx="6" fill="none" stroke="url(#g4)" stroke-width="2"/>
                             <circle cx="150" cy="260" r="18" fill="url(#g4)" opacity="0.3"/>
-                            <circle cx="150" cy="260" r="8" fill="var(--bg-dark)" opacity="0.8"/>
+                            <circle cx="150" cy="260" r="8" fill="#0f172a" opacity="0.8"/>
                             <circle cx="250" cy="260" r="18" fill="url(#g4)" opacity="0.3"/>
-                            <circle cx="250" cy="260" r="8" fill="var(--bg-dark)" opacity="0.8"/>
+                            <circle cx="250" cy="260" r="8" fill="#0f172a" opacity="0.8"/>
                             <polygon points="300,180 340,200 300,220" fill="url(#g4)" opacity="0.2" class="svg-pulse"/>
                             <text x="200" y="210" text-anchor="middle" fill="white" font-size="28" opacity="0.5">&#xf0d1;</text>
                             <circle cx="80" cy="120" r="5" fill="#f59e0b" opacity="0.4" class="svg-orbit"/>
@@ -1877,7 +1877,7 @@
             <div class="cart-qr-section">
                 <p class="qr-title"><i class="fas fa-qrcode"></i> Paga con Nequi</p>
                 <div class="qr-code" id="nequiQr">
-                    <svg viewBox="0 0 200 200" width="160" height="160" id="nequiQrSvg"></svg>
+                    <canvas id="nequiQrCanvas" width="160" height="160"></canvas>
                 </div>
                 <p class="qr-phone">Nequi: <strong>312 254 1254</strong></p>
                 <p class="qr-instruction">Escanea el c&oacute;digo o transfiere al n&uacute;mero</p>
@@ -1896,6 +1896,7 @@
     </div>
 
     <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
     <script src="js/main.js"></script>
 </body>

@@ -16,7 +16,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // Initialize all modules
     Preloader.init();
     Navbar.init();
-    Particles.init();
     Counter.init();
     ProductFilter.init();
     FAQ.init();
@@ -104,31 +103,6 @@ const Navbar = {
                 });
             }
         });
-    }
-};
-
-/* --- Particles --- */
-const Particles = {
-    init() {
-        const container = document.getElementById('particles');
-        if (!container) return;
-
-        const count = window.innerWidth < 768 ? 15 : 30;
-
-        for (let i = 0; i < count; i++) {
-            const particle = document.createElement('div');
-            particle.classList.add('particle');
-            particle.style.left = `${Math.random() * 100}%`;
-            particle.style.animationDuration = `${6 + Math.random() * 8}s`;
-            particle.style.animationDelay = `${Math.random() * 8}s`;
-            particle.style.width = `${2 + Math.random() * 4}px`;
-            particle.style.height = particle.style.width;
-
-            const colors = ['#0ea5e9', '#6366f1', '#ec4899', '#06b6d4'];
-            particle.style.background = colors[Math.floor(Math.random() * colors.length)];
-
-            container.appendChild(particle);
-        }
     }
 };
 
@@ -1194,6 +1168,13 @@ document.head.appendChild(style);
       }, { passive: true });
     }
 
+    // Pause autoplay on hover for better UX
+    var heroEl = document.getElementById('heroSlider');
+    if (heroEl) {
+      heroEl.addEventListener('mouseenter', function() { clearInterval(autoplayInterval); });
+      heroEl.addEventListener('mouseleave', function() { startAutoplay(); });
+    }
+
     startAutoplay();
   }
 
@@ -1215,59 +1196,26 @@ document.head.appendChild(style);
   var cart = [];
   var PHONE = '573122541254';
 
-  // Simple QR code generator for Nequi number
+  // Real scannable QR code for Nequi payment
   function generateNequiQR() {
-    var svg = document.getElementById('nequiQrSvg');
-    if (!svg) return;
+    var container = document.getElementById('nequiQr');
+    if (!container) return;
 
-    // Generate a visual QR-like pattern for Nequi number 3122541254
-    var data = '3122541254';
-    var size = 200;
-    var modules = 21;
-    var moduleSize = size / modules;
+    // Remove old canvas if exists
+    var oldCanvas = document.getElementById('nequiQrCanvas');
+    if (oldCanvas) oldCanvas.remove();
 
-    // Create a deterministic pattern from the phone number
-    var pattern = [];
-    var seed = 0;
-    for (var i = 0; i < data.length; i++) seed += data.charCodeAt(i) * (i + 1);
-
-    for (var row = 0; row < modules; row++) {
-      pattern[row] = [];
-      for (var col = 0; col < modules; col++) {
-        // Finder patterns (top-left, top-right, bottom-left)
-        var isFinderTL = row < 7 && col < 7;
-        var isFinderTR = row < 7 && col >= modules - 7;
-        var isFinderBL = row >= modules - 7 && col < 7;
-
-        if (isFinderTL || isFinderTR || isFinderBL) {
-          var localR = isFinderTL ? row : (isFinderTR ? row : row - (modules - 7));
-          var localC = isFinderTL ? col : (isFinderTR ? col - (modules - 7) : col);
-
-          if (localR === 0 || localR === 6 || localC === 0 || localC === 6 ||
-              (localR >= 2 && localR <= 4 && localC >= 2 && localC <= 4)) {
-            pattern[row][col] = 1;
-          } else {
-            pattern[row][col] = 0;
-          }
-        } else {
-          // Data area - use seed-based pattern
-          var hash = ((seed * (row * modules + col + 1) + 7919) % 100);
-          pattern[row][col] = hash < 45 ? 1 : 0;
-        }
-      }
+    // Generate real QR code using qrcodejs library
+    if (typeof QRCode !== 'undefined') {
+      new QRCode(container, {
+        text: 'nequi://pay?phone=3122541254',
+        width: 160,
+        height: 160,
+        colorDark: '#1e293b',
+        colorLight: '#ffffff',
+        correctLevel: QRCode.CorrectLevel.H
+      });
     }
-
-    var svgContent = '';
-    for (var r = 0; r < modules; r++) {
-      for (var c = 0; c < modules; c++) {
-        if (pattern[r][c]) {
-          svgContent += '<rect x="' + (c * moduleSize) + '" y="' + (r * moduleSize) +
-            '" width="' + moduleSize + '" height="' + moduleSize + '" fill="#1e293b" rx="1"/>';
-        }
-      }
-    }
-
-    svg.innerHTML = svgContent;
   }
 
   function formatPrice(price) {
@@ -1368,13 +1316,13 @@ document.head.appendChild(style);
 
   function saveCart() {
     try {
-      sessionStorage.setItem('tys_cart', JSON.stringify(cart));
+      localStorage.setItem('tys_cart', JSON.stringify(cart));
     } catch (e) {}
   }
 
   function loadCart() {
     try {
-      var saved = sessionStorage.getItem('tys_cart');
+      var saved = localStorage.getItem('tys_cart');
       if (saved) cart = JSON.parse(saved);
     } catch (e) {}
   }
