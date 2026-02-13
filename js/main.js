@@ -1154,23 +1154,20 @@ document.head.appendChild(style);
       dot.addEventListener('click', function() { goToSlide(i); resetAutoplay(); });
     });
 
-    // Touch/swipe support
+    // Touch/swipe support & hover pause
     var startX = 0;
-    var slider = document.getElementById('heroSlider');
-    if (slider) {
-      slider.addEventListener('touchstart', function(e) { startX = e.touches[0].clientX; }, { passive: true });
-      slider.addEventListener('touchend', function(e) {
+    var heroEl = document.getElementById('heroSlider');
+    if (heroEl) {
+      heroEl.addEventListener('touchstart', function(e) { startX = e.touches[0].clientX; }, { passive: true });
+      heroEl.addEventListener('touchend', function(e) {
         var diff = startX - e.changedTouches[0].clientX;
         if (Math.abs(diff) > 50) {
           if (diff > 0) nextSlide(); else prevSlide();
           resetAutoplay();
         }
       }, { passive: true });
-    }
 
-    // Pause autoplay on hover for better UX
-    var heroEl = document.getElementById('heroSlider');
-    if (heroEl) {
+      // Pause autoplay on hover for better UX
       heroEl.addEventListener('mouseenter', function() { clearInterval(autoplayInterval); });
       heroEl.addEventListener('mouseleave', function() { startAutoplay(); });
     }

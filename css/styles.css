@@ -1114,6 +1114,16 @@ body {
 
 .blog-card-header {
     margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+}
+
+.blog-date {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    white-space: nowrap;
 }
 
 .blog-tag {
