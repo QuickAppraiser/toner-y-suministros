@@ -288,19 +288,6 @@ const WhatsApp = {
             }
         });
 
-        // Auto-show popup after 5 seconds
-        setTimeout(() => {
-            if (!isOpen) {
-                popup.classList.add('active');
-                isOpen = true;
-
-                // Auto-hide after 8 seconds
-                setTimeout(() => {
-                    popup.classList.remove('active');
-                    isOpen = false;
-                }, 8000);
-            }
-        }, 5000);
     }
 };
 
