@@ -14,6 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Initialize all modules
+    Theme.init();
     Preloader.init();
     Navbar.init();
     Counter.init();
@@ -24,6 +25,30 @@ document.addEventListener('DOMContentLoaded', () => {
     BackToTop.init();
     SmoothScroll.init();
 });
+
+/* --- Theme Toggle --- */
+const Theme = {
+    init() {
+        const saved = localStorage.getItem('tys_theme') || 'dark';
+        this.apply(saved);
+        const btn = document.getElementById('themeToggle');
+        if (btn) {
+            btn.addEventListener('click', () => {
+                const current = document.documentElement.getAttribute('data-theme') || 'dark';
+                const next = current === 'dark' ? 'light' : 'dark';
+                this.apply(next);
+                localStorage.setItem('tys_theme', next);
+            });
+        }
+    },
+    apply(theme) {
+        document.documentElement.setAttribute('data-theme', theme);
+        const icon = document.getElementById('themeIcon');
+        if (icon) {
+            icon.className = theme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
+        }
+    }
+};
 
 /* --- Preloader --- */
 const Preloader = {
