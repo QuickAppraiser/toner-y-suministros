@@ -2974,7 +2974,8 @@ body {
 .slider-container {
     position: relative;
     width: 100%;
-    height: 520px;
+    height: 460px;
+    overflow: hidden;
 }
 
 .slide {
@@ -3018,12 +3019,13 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    overflow: hidden;
 }
 
 .slide-img {
     width: 240px;
     height: auto;
-    max-height: 300px;
+    max-height: 280px;
     object-fit: contain;
     border-radius: var(--border-radius);
     box-shadow: 0 16px 48px rgba(0, 0, 0, 0.4);
@@ -3063,12 +3065,10 @@ body {
 
 /* Slider Controls */
 .slider-dots {
-    position: absolute;
-    bottom: 80px;
-    left: 50%;
-    transform: translateX(-50%);
     display: flex;
+    justify-content: center;
     gap: 12px;
+    padding: 16px 0;
     z-index: 10;
 }
 
@@ -3125,9 +3125,7 @@ body {
 
 /* Stats Bar */
 .hero-stats-bar {
-    position: absolute;
-    bottom: 0;
-    left: 0;
+    position: relative;
     width: 100%;
     display: flex;
     align-items: center;
@@ -3573,8 +3571,8 @@ body {
     .slide-content {
         flex-direction: column;
         text-align: center;
-        padding: 32px 24px 100px;
-        gap: 24px;
+        padding: 32px 24px 40px;
+        gap: 20px;
     }
 
     .slide-text { max-width: 100%; }
@@ -3608,10 +3606,9 @@ body {
 
     .slider-arrow { display: none; }
 
-    .slider-dots { position: relative; bottom: auto; margin: -60px 0 20px; }
+    .slider-dots { padding: 12px 0; }
 
     .hero-stats-bar {
-        position: relative;
         gap: 20px;
         flex-wrap: wrap;
         padding: 16px;
