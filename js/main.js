@@ -54,6 +54,7 @@ const Theme = {
 const Preloader = {
     init() {
         const preloader = document.getElementById('preloader');
+        if (!preloader) return;
         window.addEventListener('load', () => {
             setTimeout(() => {
                 preloader.classList.add('hidden');
@@ -72,6 +73,7 @@ const Navbar = {
         const navbar = document.getElementById('navbar');
         const navToggle = document.getElementById('navToggle');
         const navMenu = document.getElementById('navMenu');
+        if (!navbar || !navToggle || !navMenu) return;
         const navLinks = document.querySelectorAll('.nav-link');
 
         // Scroll effect
@@ -710,13 +712,18 @@ document.head.appendChild(style);
     popularEl.style.display = 'none';
   }
 
+  function escapeHtml(str) {
+    return str.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+  }
+
   function renderNoResults(query) {
     var resultsEl = document.getElementById('searchResults');
+    var safeQuery = escapeHtml(query);
     var waText = encodeURIComponent('Hola, busco toner para mi impresora ' + query + '. No lo encontre en la pagina. Pueden ayudarme?');
 
     resultsEl.innerHTML = '<div class="result-card"><div class="no-results">' +
       '<i class="fas fa-search"></i>' +
-      '<p>No encontramos resultados para "<strong>' + query + '</strong>"</p>' +
+      '<p>No encontramos resultados para "<strong>' + safeQuery + '</strong>"</p>' +
       '<p>Preguntanos directamente por WhatsApp, tenemos mas modelos disponibles.</p>' +
       '<a href="https://wa.me/573122541254?text=' + waText + '" target="_blank" rel="noopener">' +
       '<i class="fab fa-whatsapp"></i> Consultar disponibilidad' +

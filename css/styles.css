@@ -3437,7 +3437,6 @@ body {
     padding: 12px;
     background: white;
     border-radius: 8px;
-    display: inline-block;
 }
 
 .qr-phone {
@@ -3702,7 +3701,7 @@ body {
     border-top: 1px solid rgba(0, 0, 0, 0.06);
 }
 
-[data-theme="light"] .hero-stats-bar .stat-value {
+[data-theme="light"] .hero-stats-bar .stat-number {
     color: #1e293b;
 }
 
@@ -3736,12 +3735,12 @@ body {
     background: #e8edf4;
 }
 
-[data-theme="light"] .brand-item img {
-    filter: grayscale(100%) brightness(0.3);
+[data-theme="light"] .brand-item i {
+    color: #475569;
 }
 
-[data-theme="light"] .brand-item:hover img {
-    filter: grayscale(0%) brightness(1);
+[data-theme="light"] .brand-item:hover i {
+    color: var(--primary);
 }
 
 /* --- Glass Cards --- */
@@ -3943,7 +3942,7 @@ body {
 }
 
 /* --- Section Headers --- */
-[data-theme="light"] .section-eyebrow {
+[data-theme="light"] .section-badge {
     color: var(--primary-dark);
 }
 
